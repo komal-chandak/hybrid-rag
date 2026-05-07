@@ -40,7 +40,9 @@ class MemoryService:
         }).eq("id", session_id).execute()
 
     def get_history(self, user_id, session_id, limit=6):
-        summary = self.get_summary_record(user_id, session_id)["content"]
+        summary_record = self.get_summary_record(user_id, session_id)
+        summary = summary_record["content"] if summary_record else ""
+
         response = self.client.table("internal_kb") \
             .select("role, content") \
             .eq("user_id", user_id) \

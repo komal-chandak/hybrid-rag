@@ -86,17 +86,22 @@ for s in st.session_state.sessions:
     # ---- OPEN CHAT ----
     with col1:
         if st.button(label, key=f"open_{s['session_id']}"):
-            st.session_state.session_id = s["session_id"]
+            selected_session = s["session_id"]
 
             try:
                 history = make_request(
-                    "DELETE",
-                    f"{BASE_URL}/clear_history/{s['session_id']}"
+                    "GET",
+                    f"{BASE_URL}/history/{s['session_id']}"
                 ).json()
 
-                st.session_state.messages = history
+                if not isinstance(history, list):
+                    history = []
+                
             except:
-                st.session_state.messages = []
+                history = []
+
+            st.session_state.session_id = selected_session
+            st.session_state.messages = history
 
             st.rerun()
 
@@ -259,6 +264,8 @@ if prompt:
             "query": prompt
         })
 
+    is_new_chat = len(st.session_state.messages) <= 1
+
     with st.chat_message("assistant"):
         with st.spinner("Thinking..."):
 
@@ -286,4 +293,6 @@ if prompt:
     }
 
     st.session_state.messages.append(assistant_message)
+    if is_new_chat:
+        load_sessions()
     st.rerun()

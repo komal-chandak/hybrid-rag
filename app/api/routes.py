@@ -36,7 +36,10 @@ async def ask(request: SearchRequest, background_tasks: BackgroundTasks, user_id
     logger.info(f"[GUARD] time={(time.time()-t0)*1000:.2f}ms status={status}")
     if status == 'blocked':
         logger.info(f"User query blocked: {request.query} : {categories}")
-        return blocked_reponse()
+        blocked_response = blocked_reponse()
+        background_tasks.add_task(memory_service.save_message, user_id, request.session_id,'user', request.query)       
+        background_tasks.add_task(memory_service.save_message, user_id, request.session_id,'assistant', blocked_response['answer'], images=blocked_response.get('images',[]), citations=blocked_response['citations'])
+        return blocked_reponse
     
     if not request.force_refresh:
         cached = cache_service.get(request.query)
@@ -59,7 +62,9 @@ async def ask(request: SearchRequest, background_tasks: BackgroundTasks, user_id
            
     except Exception as e:
         logger.error(f"Error during RAG generation: {e}")
-        return {"answer": "Sorry, something went wrong while processing your request. Please try again.", "images": [], "citations": []}  
+        response = {"answer": "Sorry, something went wrong while processing your request. Please try again." }
+        context = []
+        citations = []
     
     logger.info(f"[RAG] retrieval+llm time={(time.time()-t1)*1000:.2f}ms")
     
