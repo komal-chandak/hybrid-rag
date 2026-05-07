@@ -2,6 +2,8 @@
 
 A modular Retrieval-Augmented Generation (RAG) system built with FastAPI, combining hybrid retrieval (dense + sparse), reranking, guardrails, caching, and session-based memory.
 
+<video src="https://github.com/user-attachments/assets/8510b721-5b05-4c86-849c-aa677309ca39" controls width="800"></video>
+
 ---
 
 ## Overview
