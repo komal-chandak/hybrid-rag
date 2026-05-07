@@ -1,0 +1,102 @@
+- name: spikes
+  query: "how many events are processed by events pipeline normally? need to understand if I am observing abnormal traffic or is it normal behavior"
+  expected_doc: "event_processing_pipeline_deployment_and_operations_guide"
+  expected_page: 1
+  type: rag
+
+- name: pre_deployment_checks
+  query: "predeployment checks for event processing pipeline"
+  expected_doc: "event_processing_pipeline_deployment_and_operations_guide"
+  expected_page: 1
+  type: rag
+
+- name: QA
+  query: "members of the smoke testing team"
+  expected_doc: "event_processing_pipeline_deployment_and_operations_guide"
+  expected_page: 1
+  type: rag
+
+- name: step_smoke_test
+  query: "my api authentication is failing after deploying again, what to do?"
+  expected_doc: "event_processing_pipeline_deployment_and_operations_guide"
+  expected_page: 2
+  type: rag
+
+- name: solution_arch
+  query: "need the solution architecture diagram for event processing pipeline"
+  expected_doc: "event_processing_pipeline_deployment_and_operations_guide"
+  expected_page: 3
+  type: rag
+
+- name: api_auto refresh
+  query: "Are the API auth tokens auto refreshed, if yes then by when?"
+  expected_doc: "incident_report_onboarding_guide"
+  expected_page: 1
+  type: rag
+
+- name: where_log_incident
+  query: "How can I raise an issue related to API gateway?"
+  expected_doc: "incident_report_onboarding_guide"
+  expected_page: 1
+  type: rag
+
+- name: onboarding
+  query: "What are the guidelines available for newly onboarded engineers?"
+  expected_doc: "incident_report_onboarding_guide"
+  expected_page: 1
+  type: rag
+
+- name: token_auto_refresh
+  query: "Has someone reported token expiration issue previously? I am experiencing some issue with the service, let me know if there are any details available in case it was previously reported as well."
+  expected_doc: "incident_report_onboarding_guide"
+  expected_page: 1
+  type: rag
+
+- name: api_specs
+  query: "need info on api specs doc"
+  expected_doc: "incident_report_onboarding_guide"
+  expected_page: 1
+  type: rag
+
+- name: notif_service_desc
+  query: "Who does the Notification Service do?"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 1
+  type: rag
+
+- name: notif_delivery_issue_escalation
+  query: "for the notif service how are the incoming events processed?"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 1
+  type: rag
+
+- name: notif_metrics_dashboard
+  query: "give the details about the user database, the team handling it, any policies, backups, schema, etc whatever is available"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 1
+  type: rag
+
+- name: notif_flowchart
+  query: "flow chart for notification service"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 2
+  type: rag
+
+- name: retries_db
+  query: "are we storing the failure messages for retries?"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 2
+  type: rag
+
+- name: backup_contact
+  query: "please share the backup contact for the notification table"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 2
+  type: rag
+
+- name: schema_update
+  query: "Can the user db schema be changed?"
+  expected_doc: "notification_service_user_database_doc"
+  expected_page: 3
+  type: rag
+

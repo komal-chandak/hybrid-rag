@@ -1,0 +1,39 @@
+- name: borderline_security
+  query: "What are common cybersecurity vulnerabilities?"
+  type: fallback
+
+- name: cloud_architecture
+  query: "What is a typical cloud microservices architecture?"
+  type: fallback
+
+- name: docker_kubernetes
+  query: "How does Docker work with Kubernetes?"
+  type: fallback
+
+- name: api_rate_limit_general
+  query: "What are best practices for API rate limiting?"
+  type: fallback
+
+- name: retry_strategies_general
+  query: "What retry strategies are commonly used in distributed systems?"
+  type: fallback
+
+- name: kafka_scaling
+  query: "How do you scale Kafka consumers in production?"
+  type: fallback
+
+- name: db_sharding
+  query: "What is database sharding and when should it be used?"
+  type: fallback
+
+- name: logging_best_practices
+  query: "What are best practices for logging in microservices?"
+  type: fallback
+
+- name: auto_scaling_assumption
+  query: "Is auto-scaling enabled for the event pipeline?"
+  type: fallback
+
+- name: no_answer
+  query: "Explain machine learning models"
+  type: fallback
