@@ -1,0 +1,25 @@
+# env
+.env
+.env.*
+
+# logs
+*.log
+
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# reports
+*.jsonl
+reports/
+rag_debug_fallback/
+
+# local data
+data/
+cache/
+indexes/
+
+# IDE
+.vscode/
+.idea/
